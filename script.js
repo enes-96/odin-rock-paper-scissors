@@ -1,20 +1,27 @@
 "use strict";
+
+//player and computer score
 let playerScore = 0;
 let computerScore = 0;
+
+//selecting all the buttons
 const buttons = document.querySelectorAll("input");
 
+//computer choosing rock, paper or scissors
 function computerPlay() {
   let choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+//when game is over the buttons will be disabled and the background changes
 function disableButtons() {
   buttons.forEach((elem) => {
     elem.disabled = true;
   });
-  document.body.style.background = "red";
+  document.body.style.backgroundColor = "red";
 }
 
+//function for playing rounds
 function playRound(playerSelection) {
   let computerSelection = computerPlay();
   let result = "";
@@ -69,6 +76,7 @@ function playRound(playerSelection) {
   return;
 }
 
+//on every click playround function executing
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
     playRound(button.value);
